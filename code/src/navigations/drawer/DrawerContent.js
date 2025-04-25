@@ -176,14 +176,6 @@ export const DrawerContent = () => {
                if (accounts !== data.accounts) {
                     updateLinkedAccounts(data.accounts);
                }
-          },
-     });
-
-     useQuery(['library_cards', user, cards ?? [], library.baseUrl, language], () => getLinkedAccounts(user, cards, library.barcodeStyle, library.baseUrl, language), {
-          initialData: cards,
-          refetchInterval: 60 * 1000 * 15,
-          refetchIntervalInBackground: true,
-          onSuccess: (data) => {
                if (cards !== data.cards) {
                     updateLibraryCards(data.cards);
                }

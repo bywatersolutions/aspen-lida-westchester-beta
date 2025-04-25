@@ -340,7 +340,6 @@ export const LoadingScreen = () => {
           languagesQueryStatus === 'success' ||
           libraryBranchQueryStatus === 'success' ||
           linkedAccountQueryStatus === 'success' ||
-          libraryCardsQueryStatus === 'success' ||
           systemMessagesQueryStatus === 'success' ||
           appPreferencesQueryStatus === 'success' ||
           notificationHistoryQueryStatus === 'success'
