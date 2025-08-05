@@ -233,7 +233,7 @@ export const MyList = () => {
                displayEndTime = moment(displayEndTime).format('h:mm A');
 
                return (
-                    <Pressable borderBottomWidth="$1" _dark={{ borderColor: 'gray.600' }} borderColor="coolGray.200" pl="4" pr="5" py="2" onPress={() => handleOpenEvent(item)}>
+                    <Pressable borderBottomWidth="$1" _dark={{ borderColor: 'gray.600' }} borderColor="coolGray.200" pl="$4" pr="$5" py="$2" onPress={() => handleOpenEvent(item)}>
                          <HStack space="sm">
                               <VStack maxW="35%">
                                    <Image
@@ -254,7 +254,7 @@ export const MyList = () => {
                                                   queryClient.invalidateQueries({ queryKey: ['list', id] });
                                              });
                                         }}
-                                        size="sm"
+                                        size="$sm"
                                         variant="link">
                                         <ButtonIcon color={theme['colors']['warning']['500']} as={MaterialIcons} name="delete" />
                                         <ButtonText color={theme['colors']['warning']['500']}>{getTermFromDictionary(language, 'delete')}</ButtonText>
@@ -264,21 +264,21 @@ export const MyList = () => {
                                    <Text
                                         color={textColor}
                                         bold
-                                        fontSize="$md"
+                                        fontSize="$sm"
                                         >
                                         {item.title}
                                    </Text>
                                    {item.start_date && item.end_date ? (
                                         <>
-                                             <Text color={textColor}>{displayDay}</Text>
-                                             <Text color={textColor}>
+                                             <Text color={textColor} fontSize="$xs">{displayDay}</Text>
+                                             <Text color={textColor} fontSize="$xs">
                                                   {displayStartTime} - {displayEndTime}
                                              </Text>
                                         </>
                                    ) : null}
                                    {registrationRequired ? (
                                         <HStack mt="$1" direction="row" space="sm" flexWrap="wrap">
-                                             <Badge key={0} colorScheme="secondary" mt={1} variant="outline" rounded="4px" fontSize="$xs">
+                                             <Badge key={0} colorScheme="secondary" mt="$1" variant="outline" rounded="4px" fontSize="$xs">
                                                   {getTermFromDictionary(language, 'registration_required')}
                                              </Badge>
                                         </HStack>

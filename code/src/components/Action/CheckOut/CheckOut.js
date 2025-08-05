@@ -172,7 +172,7 @@ export const CheckOut = (props) => {
                                              onPress={async () => {
                                                   setLoading(true);
                                                   await updateCard();
-                                                  await completeAction(record, type, user.id, null, null, null, null, library.baseUrl).then(async (response) => {
+                                                  await completeAction(record, type, user.id, null, null, null, null, null, library.baseUrl).then(async (response) => {
                                                        if (__DEV__) {
                                                             console.log("Completed Action - Checkout with alternate card");
                                                        }
@@ -204,7 +204,7 @@ export const CheckOut = (props) => {
                          variant="solid"
                          onPress={async () => {
                               setLoading(true);
-                              await completeAction(record, type, user.id, null, null, null, null, library.baseUrl).then(async (eContentResponse) => {
+                              await completeAction(record, type, user.id, null, null, null, null, null, library.baseUrl).then(async (eContentResponse) => {
                                    setResponse(eContentResponse);
                                    if (__DEV__) {
                                         console.log("Completed Action - Checkout");

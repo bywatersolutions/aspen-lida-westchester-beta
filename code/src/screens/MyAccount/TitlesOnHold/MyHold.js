@@ -2,7 +2,7 @@ import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { Image } from 'expo-image';
 import _ from 'lodash';
-import { Actionsheet, ActionsheetItem, ActionsheetBackdrop, ActionsheetContent, ActionsheetItemText, ActionsheetDragIndicatorWrapper, ActionsheetDragIndicator, Box, Button, ButtonText, Center, Checkbox, HStack, Icon, Pressable, ActionsheetIcon, VStack } from '@gluestack-ui/themed';
+import { Actionsheet, ActionsheetItem, ActionsheetBackdrop, ActionsheetContent, ActionsheetItemText, ActionsheetDragIndicatorWrapper, ActionsheetDragIndicator, Box, Button, ButtonText, Center, Checkbox, CheckboxIndicator, CheckboxIcon, CheckIcon, HStack, Icon, Pressable, ActionsheetIcon, VStack } from '@gluestack-ui/themed';
 import React from 'react';
 import { popAlert } from '../../../components/loadError';
 import { HoldsContext, LanguageContext, LibrarySystemContext, UserContext, ThemeContext } from '../../../context/initialContext';
@@ -133,7 +133,11 @@ export const MyHold = (props) => {
                          />
                          {(hold.allowFreezeHolds || canCancel) && allowLinkedAccountAction && section === 'Pending' ? (
                               <Center>
-                                   <Checkbox value={method + '|' + hold.recordId + '|' + hold.cancelId + '|' + hold.source + '|' + hold.userId} my={3} size="md" accessibilityLabel="Check item" />
+                                   <Checkbox value={method + '|' + hold.recordId + '|' + hold.cancelId + '|' + hold.source + '|' + hold.userId} my="$3" size="md" accessibilityLabel="Check item">
+                                        <CheckboxIndicator>
+                                             <CheckboxIcon as={CheckIcon} />
+                                        </CheckboxIndicator>
+                                   </Checkbox>
                               </Center>
                          ) : null}
                     </VStack>
@@ -142,7 +146,11 @@ export const MyHold = (props) => {
                if (section === 'Pending') {
                     return (
                          <Center>
-                              <Checkbox value={method + '|' + hold.recordId + '|' + hold.cancelId + '|' + hold.source + '|' + hold.userId} my={3} size="md" accessibilityLabel="Check item" />
+                              <Checkbox value={method + '|' + hold.recordId + '|' + hold.cancelId + '|' + hold.source + '|' + hold.userId} my="$3" size="md" accessibilityLabel="Check item">
+                                   <CheckboxIndicator>
+                                        <CheckboxIcon as={CheckIcon} />
+                                   </CheckboxIndicator>
+                              </Checkbox>
                          </Center>
                     );
                }
@@ -478,7 +486,7 @@ export const ManageSelectedHolds = (props) => {
      const freezeActionItem = () => {
           if (numToFreeze > 0) {
                if (library.showDateWhenSuspending) {
-                    return <SelectThawDate isOpen={showActionsheet} label={numToFreezeLabel} freezeLabel={freezeHoldLabel} freezingLabel={freezingHoldLabel} language={language} holdsContext={updateHolds} libraryContext={library} resetGroup={resetGroup} onClose={onClose} count={numToFreeze} numSelected={numSelected} data={titlesToFreeze} colorMode={colorMode} textColor={textColor} />;
+                    return <SelectThawDate isOpen={showActionsheet} label={numToFreezeLabel} freezeLabel={freezeHoldLabel} freezingLabel={freezingHoldLabel} language={language} holdsContext={updateHolds} libraryContext={library} resetGroup={resetGroup} onClose={handleClose} count={numToFreeze} numSelected={numSelected} data={titlesToFreeze} colorMode={colorMode} textColor={textColor} />;
                }else{
                     return (
                          <ActionsheetItem
@@ -610,7 +618,7 @@ export const ManageAllHolds = (props) => {
                     );
                }
           } else {
-               return <ActionsheetItem isDisabled>{freezeHoldLabel}</ActionsheetItem>;
+               return <ActionsheetItem isDisabled><ActionsheetItemText>{freezeHoldLabel}</ActionsheetItemText></ActionsheetItem>;
           }
      }
 

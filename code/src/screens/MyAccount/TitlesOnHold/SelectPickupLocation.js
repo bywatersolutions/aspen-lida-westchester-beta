@@ -76,6 +76,7 @@ export const SelectPickupLocation = (props) => {
                     <ActionsheetItemText>{getTermFromDictionary(language, 'change_location')}</ActionsheetItemText>
                </ActionsheetItem>
                <Modal
+
                     isVisible={showModal}
                     avoidKeyboard={true}
                     onBackdropPress={() => {
@@ -100,7 +101,7 @@ export const SelectPickupLocation = (props) => {
                                         <CloseIcon
                                              zIndex="1"
                                              color={textColor}
-                                             p="2"
+                                             p="$2"
                                              bg="transparent"
                                              borderRadius="sm"
                                         />
@@ -112,13 +113,10 @@ export const SelectPickupLocation = (props) => {
                                         <Select
                                              name="pickupLocations"
                                              selectedValue={location}
-                                             minWidth="200"
+                                             minWidth="100%"
                                              accessibilityLabel={getTermFromDictionary(language, 'select_new_pickup')}
                                              mt="$1"
                                              mb="$3"
-                                             _actionSheet={{
-                                                  useRNModal: Platform.OS === 'ios',
-                                             }}
                                              onValueChange={(itemValue) => setLocation(itemValue)}>
 
                                              <SelectTrigger variant="outline" size="md">
@@ -127,7 +125,7 @@ export const SelectPickupLocation = (props) => {
                                                        <Icon color={textColor} as={ChevronDownIcon} />
                                                   </SelectIcon>
                                              </SelectTrigger>
-                                             <SelectPortal zIndex={1000}>
+                                             <SelectPortal useRNModal={true}>
                                                   <SelectBackdrop />
                                                   <SelectContent>
                                                        <SelectDragIndicatorWrapper>

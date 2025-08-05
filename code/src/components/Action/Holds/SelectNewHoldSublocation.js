@@ -60,7 +60,7 @@ export const SelectNewHoldSublocation = (props) => {
                                                   })}
                                                   <SelectIcon mr="$3" as={ChevronDownIcon} color={textColor} />
                                              </SelectTrigger>
-                                             <SelectPortal>
+                                             <SelectPortal useRNModal={true}>
                                                   <SelectBackdrop />
                                                   <SelectContent p="$5">
                                                        <SelectDragIndicatorWrapper>

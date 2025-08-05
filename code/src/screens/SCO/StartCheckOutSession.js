@@ -122,7 +122,7 @@ export const StartCheckOutSession = () => {
                                                   <Icon as={ChevronDownIcon} color={textColor} />
                                              </SelectIcon>
                                         </SelectTrigger>
-                                        <SelectPortal>
+                                        <SelectPortal  useRNModal={true}>
                                              <SelectBackdrop />
                                              <SelectContent>
                                                   <SelectDragIndicatorWrapper>

@@ -207,7 +207,7 @@ export const Variations = (props) => {
                                                                  <Icon as={ChevronDownIcon} color={textColor} />
                                                             </SelectIcon>
                                                        </SelectTrigger>
-                                                       <SelectPortal>
+                                                       <SelectPortal useRNModal={true}>
                                                             <SelectBackdrop />
                                                             <SelectContent>
                                                                  <SelectDragIndicatorWrapper>

@@ -111,7 +111,7 @@ export const HoldNotificationPreferences = (props) => {
                                                   )}
                                                   <SelectIcon mr="$3" as={ChevronDownIcon} color={textColor} />
                                              </SelectTrigger>
-                                             <SelectPortal>
+                                             <SelectPortal useRNModal={true}>
                                                   <SelectBackdrop />
                                                   <SelectContent p="$5">
                                                        <SelectDragIndicatorWrapper>

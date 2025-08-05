@@ -95,7 +95,7 @@ const EditList = (props) => {
                                    <Input><InputField id="title" defaultValue={data.title} autoComplete="off" onChangeText={(text) => setTitle(text)} color={textColor}/></Input>
                               </FormControl>
                               <FormControl pb="$5">
-                                   <FormControlLabel color={textColor}>{getTermFromDictionary(language, 'description')}</FormControlLabel>
+                                   <FormControlLabel color={textColor}><FormControlLabelText>{getTermFromDictionary(language, 'description')}</FormControlLabelText></FormControlLabel>
                                    <Textarea id="description" defaultValue={data.description} autoComplete="off" onChangeText={(text) => setDescription(text)}><TextareaInput color={textColor}/></Textarea>
                               </FormControl>
                               <FormControl>

@@ -82,39 +82,6 @@ export const AddToList = (props) => {
           setListId(id);
      };
 
-     const SelectLists = () => {
-          return (
-               <Select
-                    selectedValue={listId}
-                    defaultValue={listId}
-                    onValueChange={(itemValue) => {
-                         setListId(itemValue);
-                    }}
-                    _actionSheet={{
-                         useRNModal: Platform.OS === 'ios',
-                    }}>
-                    <SelectTrigger variant="outline" size="sm" borderWidth={colorMode === 'light' ? '$none' : '$1'}
-                                   borderColor={colorMode === 'light' ? '$none' : theme['colors']['gray']['400']}>
-                         <SelectInput color={textColor} placeholder="Select option" />
-                         <SelectIcon mr="$3">
-                              <Icon color={textColor} as={ChevronDownIcon} />
-                         </SelectIcon>
-                    </SelectTrigger>
-                    <SelectPortal>
-                         <SelectBackdrop />
-                         <SelectContent>
-                              <SelectDragIndicatorWrapper>
-                                   <SelectDragIndicator />
-                              </SelectDragIndicatorWrapper>
-                    {_.map(lists, function (item, index, array) {
-                         return <SelectItem key={index} value={item.id} label={item.title} />;
-                    })}
-                         </SelectContent>
-                    </SelectPortal>
-               </Select>
-          );
-     };
-
      const LargeButton = () => {
           return (
                <Center>
@@ -186,7 +153,31 @@ export const AddToList = (props) => {
                                                             <FormControlLabel>
                                                                  <FormControlLabelText color={textColor}>{getTermFromDictionary(language, 'choose_a_list')}</FormControlLabelText>
                                                             </FormControlLabel>
-                                                            <SelectLists />
+                                                            <Select
+                                                                 selectedValue={listId}
+                                                                 defaultValue={listId}
+                                                                 onValueChange={(itemValue) => {
+                                                                      setListId(itemValue);
+                                                                 }}>
+                                                                 <SelectTrigger variant="outline" size="sm" borderWidth={colorMode === 'light' ? '$none' : '$1'}
+                                                                                borderColor={colorMode === 'light' ? '$none' : theme['colors']['gray']['400']}>
+                                                                      <SelectInput color={textColor} placeholder="Select option" />
+                                                                      <SelectIcon mr="$3">
+                                                                           <Icon color={textColor} as={ChevronDownIcon} />
+                                                                      </SelectIcon>
+                                                                 </SelectTrigger>
+                                                                 <SelectPortal useRNModal={true}>
+                                                                      <SelectBackdrop />
+                                                                      <SelectContent>
+                                                                           <SelectDragIndicatorWrapper>
+                                                                                <SelectDragIndicator />
+                                                                           </SelectDragIndicatorWrapper>
+                                                                           {_.map(lists, function (item, index, array) {
+                                                                                return <SelectItem key={index} value={item.id} label={item.title} />;
+                                                                           })}
+                                                                      </SelectContent>
+                                                                 </SelectPortal>
+                                                            </Select>
                                                        </FormControl>
                                                        <HStack space="sm" alignItems="center">
                                                             <Text color={textColor}>{getTermFromDictionary(language, 'or')}</Text>

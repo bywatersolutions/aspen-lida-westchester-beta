@@ -10,7 +10,26 @@ import { getTermFromDictionary } from '../translations/TranslationService';
 
 import { logDebugMessage, logInfoMessage, logWarnMessage, logErrorMessage } from '../util/logging.js';
 
-// complete the action on the item, i.e. checkout, hold, or view sample
+
+/**
+ * Complete the action on the item, i.e. checkout, hold, or view sample
+ * Parameters:
+
+ * @param {string} id
+ * @param {string} actionType
+ * @param {string} patronId
+ * @param {string} formatId
+ * @param {string} sampleNumber
+ * @param {string} pickupBranch
+ * @param {string} sublocation
+ * @param {string} rememberPickupLocation
+ * @param {string} url
+ * @param {string} volumeId
+ * @param {string} holdType
+ * @param {array} holdNotificationPreferences
+ * @param {string} variationId
+ * @param {string} bibId
+ **/
 export async function completeAction(id, actionType, patronId, formatId = '', sampleNumber = '', pickupBranch = '', sublocation = '', rememberPickupLocation = '', url, volumeId = '', holdType = '', holdNotificationPreferences, variationId = '', bibId = '') {
      logDebugMessage("Completing action " + actionType);
      const recordId = id.split(':');

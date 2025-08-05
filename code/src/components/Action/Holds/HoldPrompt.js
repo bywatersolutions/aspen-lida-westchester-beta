@@ -366,7 +366,7 @@ export const HoldPrompt = (props) => {
                                         onPress={async () => {
                                              setLoading(true);
                                              await updateCard();
-                                             await completeAction(id, action, activeAccount, '', '', location, sublocation, library.baseUrl, volume, holdType, holdNotificationPreferences, item).then(async (result) => {
+                                             await completeAction(id, action, activeAccount, '', '', location, sublocation, rememberHoldPickupLocation, library.baseUrl, volume, holdType, holdNotificationPreferences, item).then(async (result) => {
                                                   logDebugMessage("Completed Action - Hold Prompt footer");
 
                                                   setResponse(result);
@@ -484,7 +484,7 @@ export const HoldPrompt = (props) => {
                                                   })}
                                                   <SelectIcon mr="$3" as={ChevronDownIcon} color={textColor} />
                                              </SelectTrigger>
-                                             <SelectPortal>
+                                             <SelectPortal useRNModal={true}>
                                                   <SelectBackdrop />
                                                   <SelectContent p="$5">
                                                        <SelectDragIndicatorWrapper>
@@ -540,7 +540,7 @@ export const HoldPrompt = (props) => {
                                                   })}
                                                   <SelectIcon mr="$3" as={ChevronDownIcon} color={textColor} />
                                              </SelectTrigger>
-                                             <SelectPortal>
+                                             <SelectPortal useRNModal={true}>
                                                   <SelectBackdrop />
                                                   <SelectContent>
                                                        <SelectDragIndicatorWrapper>
