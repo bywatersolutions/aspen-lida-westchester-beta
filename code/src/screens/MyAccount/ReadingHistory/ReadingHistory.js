@@ -581,7 +581,7 @@ const Item = (data) => {
                          <ActionsheetContent bgColor={colorMode === 'light' ? theme['colors']['warmGray']['50'] : theme['colors']['coolGray']['700']}>
                               <Box w="100%" h="$60" px="$4" justifyContent="center">
                                    <Text
-                                        fontSize={18}
+                                        fontSize="$lg"
                                         color={textColor}>
                                         {getTitle(item.title)}
                                    </Text>
