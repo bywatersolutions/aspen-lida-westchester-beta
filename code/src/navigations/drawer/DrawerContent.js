@@ -994,7 +994,7 @@ const Campaigns = () => {
                          <Icon as={MaterialIcons} name="chevron-right" size="7"/>
                          <VStack w="100%">
                               <Text fontWeight="500">
-                                   {getTermFromDictionary(language, 'campaigns')} {user ? <Text bold>({user.numCampaigns ?? 0})</Text> : null}
+                                   {getTermFromDictionary(language, 'campaigns')}
                               </Text>
                          </VStack>
                     </HStack>
