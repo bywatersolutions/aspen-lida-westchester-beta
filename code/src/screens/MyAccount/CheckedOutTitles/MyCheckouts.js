@@ -351,9 +351,11 @@ export const MyCheckouts = () => {
                               <Button
                                    isLoading={renewAll}
                                    isLoadingText={getTermFromDictionary(language, 'renewing_all', true)}
+                                   isDisabled={renewAll}
                                    size="sm"
                                    bgColor={theme['colors']['primary']['500']}
                                    onPress={() => {
+                                        if (renewAll) return;
                                         setRenewAll(true);
                                         renewAllCheckouts(library.baseUrl, language).then((result) => {
                                              if (result?.confirmRenewalFee && result.confirmRenewalFee) {
