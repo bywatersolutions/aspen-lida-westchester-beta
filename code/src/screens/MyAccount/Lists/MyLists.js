@@ -17,6 +17,7 @@ import { formatLists, getListDetails, getListGroups, getLists, getListTitles } f
 import CreateList from './CreateList';
 import { logDebugMessage, logErrorMessage } from '../../../util/logging';
 import { getErrorMessage } from '../../../util/apiAuth';
+import CreateListGroup from './CreateListGroup';
 
 const blurhash = 'MHPZ}tt7*0WC5S-;ayWBofj[K5RjM{ofM_';
 
@@ -229,6 +230,7 @@ export const MyLists = () => {
                 >
                     {showSystemMessage()}
                     <CreateList setLoading={setLoading} />
+                    <CreateListGroup />
                     <FlatList mt="$2" data={lists} ListEmptyComponent={listEmptyComponent} renderItem={({ item }) => renderList(item, library.baseUrl)} keyExtractor={(item, index) => index.toString()} />
                </Box>
           </SafeAreaView>
