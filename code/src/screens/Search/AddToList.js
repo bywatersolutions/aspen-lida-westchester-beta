@@ -49,7 +49,7 @@ import {
      TextareaInput,
 } from '@gluestack-ui/themed';
 
-export const AddToList = (props) => {
+const AddToList = (props) => {
      const item = props.itemId;
      const btnStyle = props.btnStyle;
      const source = props.source ?? 'GroupedWork';
