@@ -53,8 +53,6 @@ export const EditListGroupParent = ({id, parentId, handleUpdate}) => {
                                         name="newListGroupParent"
                                         selectedValue={newListGroupParentId}
                                         accessibilityLabel={getTermFromDictionary(language, 'move_list_group_to')}
-                                        mt="$1"
-                                        mb="$2"
                                         onValueChange={(itemValue) => setNewListGroupParentId(itemValue)}>
                                         <SelectTrigger variant="outline" size="md">
                                              <SelectInput color={textColor} value={newListGroupParentId} />

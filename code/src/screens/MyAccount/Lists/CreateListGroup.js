@@ -67,8 +67,6 @@ const CreateListGroup = (props) => {
                                         name="should_nest_list_group"
                                         selectedValue={nestedGroupId}
                                         accessibilityLabel={getTermFromDictionary(language, 'should_nest_list_group')}
-                                        mt="$1"
-                                        mb="$2"
                                         onValueChange={(itemValue) => setNestedGroupId(itemValue)}>
                                         <SelectTrigger variant="outline" size="md">
                                              {nestedGroupId !== "no" && nestedGroupId !== "" ? (

@@ -88,7 +88,7 @@ const CreateList = (props) => {
           setGroupName('');
           setNewGroupName('');
           setNestedGroup('');
-          setExistingGroupId(user.lastListGroupAdded ? user.lastListGroupAdded : listGroups.groups[0].id);
+          setExistingGroupId(user.lastListGroupAdded ? user.lastListGroupAdded : (listGroups?.groups[0] ? listGroups.groups[0].id : 0));
      };
 
      return (
@@ -155,8 +155,6 @@ const CreateList = (props) => {
                                         name="should_add_to_list_group"
                                         selectedValue={addToGroup}
                                         accessibilityLabel={getTermFromDictionary(language, 'should_add_to_list_group')}
-                                        mt="$1"
-                                        mb="$2"
                                         onValueChange={(itemValue) => setAddToGroup(itemValue)}>
                                         <SelectTrigger variant="outline" size="md">
                                              {addToGroup !== "" ? (
@@ -201,8 +199,6 @@ const CreateList = (props) => {
                                              name="should_nest_list_group"
                                              selectedValue={nestedGroup}
                                              accessibilityLabel={getTermFromDictionary(language, 'should_nest_list_group')}
-                                             mt="$1"
-                                             mb="$2"
                                              onValueChange={(itemValue) => setNestedGroup(itemValue)}>
                                              <SelectTrigger variant="outline" size="md">
                                                   {nestedGroup !== "no" && nestedGroup !== "" ? (
