@@ -1,0 +1,15 @@
+{
+  "name": "WLS Mobile - Beta",
+  "slug": "westchester-beta",
+  "easId": "44d42fea-2523-4c5b-bf32-874b7286bc0b",
+  "reverseDns": "org.aspendiscovery.westchestertest",
+  "discoveryUrl": "https://westchester-test.aspendiscovery.org/",
+  "greenhouseUrl": "https://westchester-test.aspendiscovery.org/",
+  "libraryId": "4",
+  "themeId": "1",
+  "background": "#ffffff",
+  "sentryProject": "aspen-lida-westchester-beta",
+  "sentryDsn": "https://cabe0292ef76e7c7d4960811b0329310@o994439.ingest.us.sentry.io/4508778956062720",
+  "ascAppId": "6741779372",
+  "logLevel": "0"
+}
