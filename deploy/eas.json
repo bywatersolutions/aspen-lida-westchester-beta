@@ -42,5 +42,6 @@
       "ios": {
         "ascAppId": "$ASC_APP_ID"
       }
+    }
   }
 }
