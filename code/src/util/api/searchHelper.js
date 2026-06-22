@@ -140,8 +140,15 @@ export function addAppliedFilter(group, values, multiSelect = false) {
 export function removeAppliedFilter(group, values) {
      if (!group) return false;
 
-     const index = (SearchGlobal.pendingFilters ?? []).findIndex((f) => f.field === group);
-     if (index === -1) return false;
+     let index = (SearchGlobal.pendingFilters ?? []).findIndex((f) => f.field === group);
+     if (index === -1) {
+          logDebugMessage('Group not found in pendingFilters, adding it');
+          if (!SearchGlobal.pendingFilters) {
+               SearchGlobal.pendingFilters = [];
+          }
+          SearchGlobal.pendingFilters.push({ field: group, facets: [] });
+          index = SearchGlobal.pendingFilters.length - 1;
+     }
 
      const removeValues = new Set(toArray(values));
      const existing = SearchGlobal.pendingFilters[index].facets ?? [];

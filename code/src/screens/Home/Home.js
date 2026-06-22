@@ -53,11 +53,13 @@ export const DiscoverHomeScreen = () => {
      const [errorTitle, setErrorTitle] = React.useState('');
      const [errorMessage, setErrorMessage] = React.useState('');
 
-     navigation.setOptions({
-          headerLeft: () => {
-               return null;
-          },
-     });
+     React.useLayoutEffect(() => {
+          navigation.setOptions({
+               headerLeft: () => {
+                    return null;
+               },
+          });
+     }, [navigation]);
 
      useFocusEffect(
           React.useCallback(() => {
@@ -139,10 +141,11 @@ export const DiscoverHomeScreen = () => {
 
      const showSystemMessage = () => {
           if (_.isArray(systemMessages)) {
-               return systemMessages.map((obj, index, collection) => {
+               return systemMessages.map((obj, index) => {
                     if (obj.showOn === '0') {
-                         return <DisplaySystemMessage style={obj.style} message={obj.message} dismissable={obj.dismissable} id={obj.id} all={systemMessages} url={library.baseUrl} updateSystemMessages={updateSystemMessages} queryClient={queryClient} />;
+                         return <DisplaySystemMessage key={obj.id || index} style={obj.style} message={obj.message} dismissable={obj.dismissable} id={obj.id} all={systemMessages} url={library.baseUrl} updateSystemMessages={updateSystemMessages} queryClient={queryClient} />;
                     }
+                    return null;
                });
           }
           return null;
@@ -197,7 +200,7 @@ export const DiscoverHomeScreen = () => {
                          <HomeScreenLinkGrid links={homeScreenLinks} />
                     ) : null}
                     {category.map((item, index) => {
-                         return <DisplayBrowseCategory category={item} />;
+                         return <DisplayBrowseCategory key={item.id || index} category={item} />;
                     })}
                     <ButtonOptions language={language} showManageCategories={showManageCategories} onRefreshCategories={onRefreshCategories} discoveryVersion={library.discoveryVersion} maxNum={maxNum} onLoadAllCategories={onLoadAllCategories} />
                     {showErrorDialog && (
